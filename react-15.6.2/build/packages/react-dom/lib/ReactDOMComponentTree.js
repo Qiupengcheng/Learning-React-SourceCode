@@ -142,6 +142,8 @@ function getClosestInstanceFromNode(node) {
  * instance, or null if the node was not rendered by this React.
  */
 function getInstanceFromNode(node) {
+  // 寻找当前node对应的reactElement实例，如果没有，往上遍历parentNode，无法找到，则返回null
+  // 第一次render应该返回null
   var inst = getClosestInstanceFromNode(node);
   if (inst != null && inst._hostNode === node) {
     return inst;

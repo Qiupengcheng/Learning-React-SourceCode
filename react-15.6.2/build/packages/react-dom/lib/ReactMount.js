@@ -207,6 +207,7 @@ function isReactNode(node) {
 }
 
 function getHostRootInstanceInContainer(container) {
+  // 找到container的第一个子元素，无则null
   var rootEl = getReactRootElementInContainer(container);
   var prevHostInstance = rootEl && ReactDOMComponentTree.getInstanceFromNode(rootEl);
   return prevHostInstance && !prevHostInstance._hostParent ? prevHostInstance : null;
