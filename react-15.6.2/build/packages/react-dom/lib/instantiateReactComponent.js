@@ -73,9 +73,12 @@ function instantiateReactComponent(node, shouldHaveDebugID) {
     }
 
     // Special case string values
+    // 此处为把reactElement转换成dom的关键
     if (typeof element.type === 'string') {
+      // type为string的，调用createInternalComponent方法，对节点进行处理（原生标签，需要包装）
       instance = ReactHostComponent.createInternalComponent(element);
     } else if (isInternalComponentType(element.type)) {
+      // 内置type？
       // This is temporarily available for custom components that are not string
       // representations. I.e. ART. Once those are updated to use the string
       // representation, we can drop this code path.
@@ -86,9 +89,12 @@ function instantiateReactComponent(node, shouldHaveDebugID) {
         instance.getHostNode = instance.getNativeNode;
       }
     } else {
+      // 其余的均为自定义组件, 通过次方法，创建组件实例
+      // 此方法比较复杂
       instance = new ReactCompositeComponentWrapper(element);
     }
   } else if (typeof node === 'string' || typeof node === 'number') {
+    // 字符串或数字，直接调用 createInstanceForText，生成实例
     instance = ReactHostComponent.createInstanceForText(node);
   } else {
     !false ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Encountered invalid React node of type %s', typeof node) : _prodInvariant('131', typeof node) : void 0;
@@ -101,6 +107,7 @@ function instantiateReactComponent(node, shouldHaveDebugID) {
   // These two fields are used by the DOM and ART diffing algorithms
   // respectively. Instead of using expandos on components, we should be
   // storing the state needed by the diffing algorithms elsewhere.
+  // 与diff算法相关，TOREAD...
   instance._mountIndex = 0;
   instance._mountImage = null;
 

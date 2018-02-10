@@ -60,6 +60,8 @@ function uncacheNode(inst) {
   }
 }
 
+
+// TOREAD...此处应有故事，暂放后续细看
 /**
  * Populate `_hostNode` on each child of `inst`, assuming that the children
  * match up with the DOM (element) children of `node`.
