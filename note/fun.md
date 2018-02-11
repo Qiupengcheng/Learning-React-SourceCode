@@ -4,8 +4,8 @@
 
 > ReactInjection 是干嘛的...
 
-> ReactDOMComponent.js 
+> ReactDOMComponent.js
 
 > ReactCompositeComponent.js
 
-> 
+> ReactMount.js -> mountComponentIntoNode，挂载组件，并插入DOM中
