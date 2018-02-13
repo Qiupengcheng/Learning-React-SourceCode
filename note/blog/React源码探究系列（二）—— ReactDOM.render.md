@@ -50,6 +50,7 @@ ReactMount = {
       child: nextElement
     });
 
+    // parentComponent为null
     var nextContext;
     if (parentComponent) {
       var parentInst = ReactInstanceMap.get(parentComponent);

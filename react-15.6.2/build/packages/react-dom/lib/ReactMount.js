@@ -353,6 +353,7 @@ var ReactMount = {
       child: nextElement
     });
 
+    // 第一次渲染，parentComponent为null
     var nextContext;
     if (parentComponent) {
       var parentInst = ReactInstanceMap.get(parentComponent);
@@ -361,7 +362,8 @@ var ReactMount = {
       nextContext = emptyObject;
     }
 
-    
+    // 获取container下对应的React根节点实例，如果找到则返回，否则返回null，
+    // 第一次渲染，将返回null
     var prevComponent = getTopLevelWrapperInContainer(container);
 
     if (prevComponent) {
@@ -383,8 +385,10 @@ var ReactMount = {
       }
     }
 
+    // 根据传入的container，获取react的根节点
     var reactRootElement = getReactRootElementInContainer(container);
     var containerHasReactMarkup = reactRootElement && !!internalGetID(reactRootElement);
+    // 检查是否有没有挂载在RootElement上的reactNode
     var containerHasNonRootReactChild = hasNonRootReactChild(container);
 
     if (process.env.NODE_ENV !== 'production') {
