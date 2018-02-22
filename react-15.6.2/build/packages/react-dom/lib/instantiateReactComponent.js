@@ -72,7 +72,6 @@ function instantiateReactComponent(node, shouldHaveDebugID) {
       !false ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s', type == null ? type : typeof type, info) : _prodInvariant('130', type == null ? type : typeof type, info) : void 0;
     }
 
-    // 以下代码为把ReactElement转换成dom的关键
     // Special case string values
     if (typeof element.type === 'string') {
       // type为string的，调用createInternalComponent方法，对节点进行处理（原生标签，需要包装）
