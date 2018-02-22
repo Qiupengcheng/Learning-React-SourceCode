@@ -26,13 +26,19 @@
             'React has been successfully running for ' + seconds + ' seconds.';
 
           // return <p>{message}</p>;
-          return React.createElement('p', {
+          return React.createElement('div', {
             className: 'react-class'
-          }, 'Test Render')
+          },React.createElement('input', {defaultValue: '123'}))
         }
       });
       var start = new Date().getTime();
-      var reactEle = React.createElement(ExampleApplication);
+      // var reactEle = React.createElement(ExampleApplication);
+      var reactEle = React.createElement('input', {
+        defaultValue: 10,
+        onClick: (e) => {
+          console.log(e, '..this is e')
+        }
+      })
       console.log(reactEle);
       ReactDOM.render(
         // <ExampleApplication elapsed={new Date().getTime() - start} />,
