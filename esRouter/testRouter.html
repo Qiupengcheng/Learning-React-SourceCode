@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="app"></div>
+  <div>
+    <button id="pushState">
+      push state
+    </button>
+
+  </div>
+  <script src="./render.js"></script>
+  <script src="./router.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      const app = document.getElementById('app'),
+            router = new Router(app, render, {});
+
+      const pushBtn = document.getElementById('pushState');
+      pushBtn.onclick = function(e){
+        e.stopPropagation;
+        router.push('jump la ... '+new Date())
+      }
+    })
+  </script>
+</body>
+</html>

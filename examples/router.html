@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Router</title>
+</head>
+<body>
+  <div id="app">Test Router</div>
+  <div>
+    <button
+      id="pushState"
+    >push state</button>
+    <button
+      id="goback"
+    >go back</button>
+  </div>
+  <script>
+    function bindHash(el){
+      this.el = el;
+      window.addEventListener('hashchange', function(e){
+        el.innerText = e.newURL;
+      })
+    }
+
+    bindHash(document.getElementById('app'))
+
+    const pushState = document.getElementById('pushState'),
+          goback = document.getElementById('goback');
+
+    pushState.addEventListener('click', function(e){
+      window.history.pushState(null, null, `${window.location.origin}/getState`)
+    })
+
+  </script>
+</body>
+</html>
