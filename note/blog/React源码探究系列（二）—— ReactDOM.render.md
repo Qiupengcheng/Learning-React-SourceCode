@@ -425,3 +425,5 @@ _assign(ReactDOMComponent.prototype, ReactDOMComponent.Mixin, ReactMultiChild.Mi
     return mountImage;
   }
 ```
+阅读上述代码，可以知道React是如何将一个ReactElement与DOM进行映射的（本例子只展示了DOMComponent这种类型，自定义组件、textNode这两种可自行找到源码阅读）。
+上述方法返回的值将会被传入```ReactUpdates.batchedUpdates```中进行挂载，这部分内容较为复杂，在未来将进一步解读。
