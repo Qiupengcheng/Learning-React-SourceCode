@@ -27,6 +27,9 @@
     }
 
     Init(){
+      window.onpopstate = function(e){
+        console.log(e,'...pop state')
+      }
       let compactView = this.getCompactView();
       this._render(compactView);
     }
