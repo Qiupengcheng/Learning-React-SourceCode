@@ -29,6 +29,7 @@
     Init(){
       window.onpopstate = function(e){
         console.log(e,'...pop state')
+        this._render(this.getCompactView())
       }
       let compactView = this.getCompactView();
       this._render(compactView);
@@ -39,7 +40,7 @@
         return url
       }
 
-      return 'compact'
+      return window.location.href
     }
 
     _defaultRender(content){
