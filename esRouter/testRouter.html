@@ -22,6 +22,8 @@
       const app = document.getElementById('app'),
             router = new Router(app, render, {});
 
+      let pushTag = 0;
+
       const pushBtn = document.getElementById('pushState');
       pushBtn.onclick = function(e){
         e.stopPropagation;
