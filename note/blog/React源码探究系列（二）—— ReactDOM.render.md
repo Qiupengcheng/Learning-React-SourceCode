@@ -109,7 +109,7 @@ ReactMount = {
   _renderNewRootComponent: function (nextElement, container, shouldReuseMarkup, context) {
 
     ReactBrowserEventEmitter.ensureScrollValueMonitoring();
-    // 初始化组件实例，并生成真实dom元素
+    // 初始化组件实例，并增加组件挂载(mount)、更新(update)、卸载(unmount)等方法
     var componentInstance = instantiateReactComponent(nextElement, false);
 
     // The initial render is synchronous but any updates that happen during
@@ -126,7 +126,7 @@ ReactMount = {
 }
 ```
 
-从以上代码可以看出，当调用```ReactDOM.render```时，使用```TopLevelWrapper```对element进行包装，随后将其传入```ReactMount._renderNewRootComponent```中，在此方法内，调用```instantiateReactComponent```生成真实dom实例。
+从以上代码可以看出，当调用```ReactDOM.render```时，使用```TopLevelWrapper```对element进行包装，随后将其传入```ReactMount._renderNewRootComponent```中，在此方法内，调用```instantiateReactComponent```组件的实例，该实例拥有```mountComponent```等挂载、更新的方法。
 
 接下来学习```instantiateReactComponent```的源码，源码位置位于```instantiateReactComponent.js```文件。
 
