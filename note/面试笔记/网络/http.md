@@ -8,7 +8,7 @@ HTTP2.0实现多路复用单一长连接，避免http请求多的时候，频繁
 server push， 不需要轮询了
 
 
-### CORS 
+### CORS
 通过请求头的Origin和服务器返回的响应头Access-Control-Allow-Origin来控制跨域
 区分简单请求、非简单请求、带身份凭证的请求几种情况。
 
@@ -29,9 +29,9 @@ server push， 不需要轮询了
 响应返回Access-Control-Allow-Origin的值，如包含Origin，则可以开始正式请求。
 
 ##### 当请求需要带上cookie的时候，
-XMLHTTPRequest对象需要设置 
+XMLHTTPRequest对象需要设置
 ```javascript
-var xhr = new XMLHTTPRequest(); 
+var xhr = new XMLHTTPRequest();
 xhr.withCredentials = true // CORS时带上cookie
 ```
 Fetch需要设置
@@ -58,7 +58,7 @@ HTTP协议本身并没有办法解决这些问题，于是在前置一层SSL/TLS
 * 2、服务端支持制定版本SSL、TLS的时候，响应制定版本及加密组件
 * 3、服务端发送Certificate报文，包含公开密钥证书
 * 4、服务端发送Server Hello Done报文
-* 5、客户端向认证机构确认证书有效性，确认有效则发送Pre-master-key（即客户端生成的随机数），并使用公钥加密，发送给服务端
+* 5、客户端向认证机构确认证书有效性，确认有效则发送Pre-master-key（即客户端生成的随机数），并使用私钥加密，发送给服务端
 * 6、服务端接收到Pre-master-key，服务端使用私钥对Pre-master-key进行解密，
 * 7、服务端、客户端分别使用此前服务端发送的公钥对Pre-master-key进行加密，生成了共享密钥
 * 8、HTTPS连接完成
